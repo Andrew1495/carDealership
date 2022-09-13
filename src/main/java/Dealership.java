@@ -57,6 +57,7 @@ public class Dealership implements IAddRemoveCar{
  public void buyCar(Vehicle car, IAddRemoveCar customer){
   if (money >= car.getPrice()) {
    makeStock(car);
+   customer.sellCar(car);
    customer.setMoney((customer.getMoney()) + car.getPrice());
   }
  }

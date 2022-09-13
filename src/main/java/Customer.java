@@ -40,11 +40,13 @@ public class Customer implements IAddRemoveCar{
 
     public void sellCar(Vehicle car){
             collection.remove(car);
+
         }
 
     public void buyCar(Vehicle car, IAddRemoveCar dealership){
         if(money >= car.getPrice()){
             collection.add(car);
+            dealership.sellCar(car);
             dealership.setMoney((dealership.getMoney() + car.price));
         }
     }
